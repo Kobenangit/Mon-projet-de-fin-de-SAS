@@ -14,8 +14,12 @@ export function moyenneTemperature(releves) {
 
 // Renvoie le cumul (la somme) des pluies, en mm. Liste vide : 0.
 export function cumulPluie(releves) {
-  throw new Error('TODO : coder cumulPluie dans src/synthese.js');
-}
+  if (!releves || releves.length === 0) {
+    return 0;
+  }
+    const cumul = releves.reduce((acc, releve) => acc + releve.pluieMm, 0);
+    return Number((cumul));
+  }
 
 // Renvoie { min, max } des températures de la série, ou null si la liste est vide.
 // Exemple : { min: 26, max: 30 }
