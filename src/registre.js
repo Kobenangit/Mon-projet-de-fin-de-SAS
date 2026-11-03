@@ -2,13 +2,15 @@
 // Fiche : fiches/3-ajouter-lister.md · Vérifier : npm run test:registre
 import { estDateValide, versNombre } from './outils.js';
 
+
 // Renvoie une ligne de texte qui décrit le relevé.
 // Exemples : 'M08 | 2026-10-22 | 26 °C | 15 mm | air 85 %'
 //            'M11 | 2026-10-25 | 27.5 °C | 4 mm | air 79 %' (JavaScript affiche un point décimal,
 //            même si la virgule est acceptée à la saisie)
 export function formaterReleve(releve) {
-  throw new Error('TODO : coder formaterReleve dans src/registre.js');
+  return `${releve.id} | ${releve.date} | ${releve.temperatureC} °C | ${releve.pluieMm} mm | air ${releve.humiditeAirPct} %`;
 }
+
 
 // Renvoie un texte avec un relevé par ligne (lignes séparées par '\n'),
 // ou 'Aucun relevé enregistré.' si la liste est vide.
