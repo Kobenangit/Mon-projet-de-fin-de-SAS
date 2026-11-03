@@ -15,12 +15,18 @@ export function formaterReleve(releve) {
 // Renvoie un texte avec un relevé par ligne (lignes séparées par '\n'),
 // ou 'Aucun relevé enregistré.' si la liste est vide.
 export function listerReleves(releves) {
-  throw new Error('TODO : coder listerReleves dans src/registre.js');
+  if (!releves || releves.length === 0) {
+    return 'Aucun relevé enregistré.';
+  }
+  else {
+    return releves.map((releve) => formaterReleve(releve)).join('\n');
+  }
 }
+
 
 // Renvoie le relevé qui a cet identifiant, ou undefined s'il n'existe pas.
 export function trouverParId(releves, id) {
-  throw new Error('TODO : coder trouverParId dans src/registre.js');
+  return releves.find((releve) => releve.id === id);
 }
 
 // Contrôle une saisie AVANT de l'ajouter. Tous les champs arrivent sous forme de TEXTE :
