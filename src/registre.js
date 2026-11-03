@@ -36,7 +36,32 @@ export function trouverParId(releves, id) {
 // (négatif ou décimal accepté) · pluieMm nombre positif ou nul · humiditeAirPct nombre entre 0 et 100.
 // Un message par règle non respectée ; n'ajoutez aucune autre règle. Le journal reçu n'est pas modifié.
 export function verifierReleve(saisie, releves) {
-  throw new Error('TODO : coder verifierReleve dans src/registre.js');
+  const erreurs = [];
+  const id = String(saisie?.id ?? '').trim();
+  const date = String(saisie?.date ?? '').trim();
+  const temperatureC = versNombre(saisie?.temperatureC);
+  const pluieMm = versNombre(saisie?.pluieMm);
+  const humiditeAirPct = versNombre(saisie?.humiditeAirPct);
+
+  if (id === '') {
+    erreurs.push('L\'identifiant est obligatoire.');
+  } else if (trouverParId(releves, id.toUpperCase()) !== undefined) {
+    erreurs.push('L\'identifiant est déjà utilisé.');
+  }
+
+  if (date === '' || !estDateValide(date)) {
+    erreurs.push('La date doit être au format AAAA-MM-JJ et exister.');
+  }
+  if (Number.isNaN(temperatureC)) {
+    erreurs.push('La température doit être un nombre.');
+  }
+  if (Number.isNaN(pluieMm) || pluieMm < 0) {
+    erreurs.push('La pluie doit être un nombre positif ou nul (en mm).');
+  }
+  if (Number.isNaN(humiditeAirPct) || humiditeAirPct < 0 || humiditeAirPct > 100) {
+    erreurs.push('L\'humidité relative de l\'air doit être comprise entre 0 et 100 %.');
+  }
+  return erreurs;
 }
 
 // Fabrique le relevé à enregistrer à partir d'une saisie VALIDE : les trois mesures deviennent des nombres.
