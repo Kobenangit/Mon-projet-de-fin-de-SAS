@@ -4,6 +4,9 @@
   "description": "Journal météorologique de la ferme en ligne de commande",
   "private": true,
   "type": "module",
+
+
+  
   "scripts": {
     "start": "node app.js",
     "test": "node --test",
