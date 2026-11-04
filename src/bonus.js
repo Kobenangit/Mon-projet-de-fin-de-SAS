@@ -37,13 +37,8 @@ export function modifierReleve(releves, id, champ, valeur) {
       return [`Champ non modifiable: ${champ}.`];
      }
 
-  const saisie = {
-    ...releve,
-    [champ]: valeur,
-  };
-  const erreurs = verifierReleve(
-    saisie,
-    releves.filter((autre) => autre !== releve),
+  const saisie = {...releve, [champ]: valeur, };
+  const erreurs = verifierReleve(saisie, releves.filter((autre) => autre !== releve),
   );
      if ( erreurs.length > 0) {
       return erreurs;
