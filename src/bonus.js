@@ -64,4 +64,4 @@ export function journeeLaPlusChaude(releves) {
       releve.temperatureC > plusChaude.temperatureC ? releve : plusChaude
     ));
   }
-}
+} 
