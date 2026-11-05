@@ -4,6 +4,4 @@
 
 | Ce que je cherchais | Où | Ce que j'ai compris | Utilisé dans |
 | --- | --- | --- | --- |
-| ✏️ | | | |
-| ✏️ | | | |
-| ✏️ | | | |
+| versNombre | claude ai | permet de convertir des valeurs en nombre | dans registre |
